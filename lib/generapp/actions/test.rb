@@ -37,7 +37,7 @@ module Generapp
       end
 
       def configure_ci
-        template 'circle.yml.erb', 'circle.yml'
+        copy_file 'circle.yml', 'circle.yml'
       end
     end
   end
