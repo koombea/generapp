@@ -1,4 +1,5 @@
 # Generapp
+[![Gem Version](https://badge.fury.io/rb/generapp.svg)](https://badge.fury.io/rb/generapp)
 [![Build Status](https://travis-ci.org/koombea/generapp.svg)](https://travis-ci.org/koombea/generapp)
 [![Coverage Status](https://coveralls.io/repos/koombea/generapp/badge.svg?branch=master&service=github)](https://coveralls.io/github/koombea/generapp?branch=master)
 
