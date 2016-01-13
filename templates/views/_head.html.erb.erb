@@ -1,0 +1,30 @@
+<title><%%= content_for?(:page_title) ? yield(:page_title) : <%= app_name.humanize %> %></title>
+
+<%%= favicon_link_tag 'apple-icon-57x57.png', rel: 'apple-touch-icon', sizes: '57x57' %>
+<%%= favicon_link_tag 'apple-icon-60x60.png', rel: 'apple-touch-icon', sizes: '60x60' %>
+<%%= favicon_link_tag 'apple-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' %>
+<%%= favicon_link_tag 'apple-icon-76x76.png', rel: 'apple-touch-icon', sizes: '76x76' %>
+<%%= favicon_link_tag 'apple-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' %>
+<%%= favicon_link_tag 'apple-icon-120x120.png', rel: 'apple-touch-icon', sizes: '120x120' %>
+<%%= favicon_link_tag 'apple-icon-144x144.png', rel: 'apple-touch-icon', sizes: '144x144' %>
+<%%= favicon_link_tag 'apple-icon-152x152.png', rel: 'apple-touch-icon', sizes: '152x152' %>
+<%%= favicon_link_tag 'apple-icon-180x180.png', rel: 'apple-touch-icon', sizes: '180x180' %>
+<%%= favicon_link_tag 'android-icon-192x192.png', rel: 'icon', type: 'image/png', sizes: '57x57' %>
+<%%= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png', sizes: '32x32' %>
+<%%= favicon_link_tag 'favicon-96x96.png', rel: 'icon', type: 'image/png', sizes: '96x96' %>
+<%%= favicon_link_tag 'favicon-16x16.png', rel: 'icon', type: 'image/png', sizes: '16x16' %>
+<link rel="manifest" href="/manifest.json">
+
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="<%%= image_path 'ms-icon-144x144.png' %>">
+<meta name="theme-color" content="#fff">
+
+<meta name="robots" content="index,follow">
+<meta name="description" content="Saasler is the easiest way to create an “integrations directory” for your app.">
+<meta name="keywords" content="integrations,lists,applications">
+<link rel="author" href="humans.txt" />
+
+<%%= stylesheet_link_tag 'application' %>
+<%%= csrf_meta_tags %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>

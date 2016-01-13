@@ -1,0 +1,49 @@
+source 'https://rubygems.org'
+
+ruby '<%= Generapp::RUBY_VERSION %>'
+
+gem 'devise'
+gem 'dalli' # caching
+gem 'honeybadger', '~> 2.0'
+gem 'jquery-rails'
+gem 'newrelic_rpm'
+gem 'pg'
+gem 'puma' # Use Puma as the app server
+gem 'rails', '<%= Generapp::RAILS_VERSION %>'
+gem 'sass-rails', '~>5.0'
+gem 'uglifier'
+
+group :development do
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet'
+  gem 'lol_dba', require: false
+  gem 'quiet_assets'
+  gem 'parallel_tests'
+  gem 'rails-erd'
+  gem 'spring'
+end
+
+group :development, :test do
+  gem 'bundler-audit', require: false
+  gem 'factory_girl_rails'
+  gem 'figaro' # Secrets
+  gem 'foreman'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'timecop'
+end
+
+group :production do
+  gem 'rack-timeout'
+  gem 'rails_12factor'
+end

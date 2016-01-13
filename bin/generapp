@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'generapp'
+
+if %w(-v --version).include? ARGV[0]
+  puts Generapp::VERSION
+  exit 0
+end
+
+templates_root = Generapp.templates
+Generapp::Generators::AppGenerator.source_root templates_root
+Generapp::Generators::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root << templates_root
+
+Generapp::Generators::AppGenerator.start

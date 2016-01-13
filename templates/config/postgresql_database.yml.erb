@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  template: template0
+  host: localhost
+
+development:
+  <<: *defaults
+  database: <%= app_name %>_development
+
+test:
+  <<: *defaults
+  min_messages: warning #magic sauce
+  database: <%= app_name %>_test
+
+production: &deploy
+  url:  <%%= ENV['DATABASE_URL'] %>
+  pool: <%%= ENV['DB_POOL'] || ENV['MAX_THREADS'] || 3 %>
+  reaping_frequency: <%%= ENV['REAPING_FREQUENCY'] || nil %>
+
+staging: *deploy

@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.2.3
+  - ruby-head
+
+sudo: false
+script: 'bundle exec rake spec'
+cache: bundler
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+  fast_finish: true

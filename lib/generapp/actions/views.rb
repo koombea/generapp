@@ -1,0 +1,30 @@
+module Generapp
+  module Actions
+    module Views
+      def create_shared_directory
+        empty_directory_with_keep_file 'app/views/shared'
+      end
+
+      def create_shared_flashes
+        copy_file 'views/_flashes.html.erb',
+                  'app/views/shared/_flashes.html.erb'
+      end
+
+      def create_shared_javascripts
+        copy_file 'views/_javascript.html.erb',
+                  'app/views/shared/_javascript.html.erb'
+      end
+
+      def create_shared_head
+        template 'views/_head.html.erb.erb',
+                 'app/views/shared/_head.html.erb'
+      end
+
+      def create_application_layout
+        template 'views/generapp_layout.html.erb.erb',
+                 'app/views/layouts/application.html.erb',
+                 force: true
+      end
+    end
+  end
+end
