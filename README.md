@@ -1,6 +1,8 @@
 # Generapp
+[![Build Status](https://travis-ci.org/koombea/generapp.svg)](https://travis-ci.org/koombea/generapp)
+[![Coverage Status](https://coveralls.io/repos/koombea/generapp/badge.svg?branch=master&service=github)](https://coveralls.io/github/koombea/generapp?branch=master)
 
-A Rails app templete to jump start your project
+A Rails app template to jump start your project with some of Koombea's best practices and recommendations. 
 
 ## Installation
 
@@ -18,9 +20,10 @@ This will create a Rails app in `my_project` using the latest version of Ruby an
 
 ## Gemfile
 
-To see the latest and greatest gems, look at Generapp's
+To see the latest gems, look at Generapp's
 [Gemfile](templates/Gemfile.erb), which will be used as the project's Gemfile.
 
+Application gems included:
 * [Devise](https://github.com/plataformatec/devise) for user authentication
 * [Dalli](https://github.com/petergoldstein/dalli) for memcached client
 * [Honeybadger](https://github.com/honeybadger-io/honeybadger-ruby) for reporting 
@@ -32,18 +35,18 @@ To see the latest and greatest gems, look at Generapp's
   taking too long
 * [Puma](https://github.com/puma/puma) to serve HTTP requests
 
-And development gems like:
+Development gems:
 * [Annotate](https://github.com/ctran/annotate_models) for annotating Rails classes 
   with schema and routes info
 * [Better errors](https://github.com/charliesome/better_errors) for better error page 
   for Rack apps
-* [Bullet](https://github.com/flyerhzm/bullet) for help to kill N+1 queries and
+* [Bullet](https://github.com/flyerhzm/bullet) for help killing N+1 queries and
   unused eager loading
 * [Bundler Audit](https://github.com/rubysec/bundler-audit) for scanning the
   Gemfile for insecure dependencies based on published CVEs
 * [Figaro](https://github.com/laserlemon/figaro) for Heroku-friendly Rails app
   configuration using `ENV`
-* [lol_dba](https://github.com/plentz/lol_dba) for scanning mssing indexes
+* [lol_dba](https://github.com/plentz/lol_dba) for scanning missing indexes
 * [Pry Rails](https://github.com/rweng/pry-rails) for interactively exploring
   objects
 * [Quiet Assets](https://github.com/evrone/quiet_assets) for muting assets
@@ -52,11 +55,10 @@ And development gems like:
 * [Spring](https://github.com/rails/spring) for fast Rails actions via
   pre-loading
 
-And testing gems like:
+Testing gems:
 
 * [Factory Girl](https://github.com/thoughtbot/factory_girl) for test data
 * [RSpec](https://github.com/rspec/rspec) for unit testing
-* [RSpec Mocks](https://github.com/rspec/rspec-mocks) for stubbing and spying
 * [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) for common
   RSpec matchers
 * [Timecop](https://github.com/ferndopolis/timecop-console) for testing time
