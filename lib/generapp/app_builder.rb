@@ -12,6 +12,7 @@ module Generapp
     include Generapp::Actions::Test
     include Generapp::Actions::Production
     include Generapp::Actions::Views
+    include Generapp::Actions::Configuration
     include Generapp::Actions::Database
 
     def readme

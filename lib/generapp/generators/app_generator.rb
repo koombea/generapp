@@ -21,8 +21,6 @@ module Generapp
         super
       end
 
-      protected
-
       def generapp_customization
         invoke :setup_gems
         invoke :setup_development_environment
