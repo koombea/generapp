@@ -31,7 +31,7 @@ if Rails.env.development?
                             'ignore_columns'          => nil,
                             'ignore_unknown_models'   => 'false',
                             'hide_limit_column_types' => 'integer,boolean',
-                            'skip_on_db_migrate'      => 'true',
+                            'skip_on_db_migrate'      => 'false',
                             'format_bare'             => 'true',
                             'format_rdoc'             => 'false',
                             'format_markdown'         => 'false',
