@@ -9,6 +9,8 @@ end
 
 templates_root = Generapp.templates
 Generapp::Generators::AppGenerator.source_root templates_root
-Generapp::Generators::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root << templates_root
+Generapp::Generators::AppGenerator.source_paths <<
+  Rails::Generators::AppGenerator.source_root <<
+  templates_root
 
 Generapp::Generators::AppGenerator.start
