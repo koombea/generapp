@@ -64,6 +64,10 @@ Testing gems:
   RSpec matchers
 * [Timecop](https://github.com/ferndopolis/timecop-console) for testing time
 
+### Rails ERD
+
+If you plan to use Rails ERD you may need to install Graphviz ([instructions](http://voormedia.github.io/rails-erd/install.html))
+
 ## Contributing
 
 1. Fork it ( https://github.com/koombea/generapp/fork )

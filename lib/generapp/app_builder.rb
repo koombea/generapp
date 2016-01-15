@@ -1,12 +1,7 @@
 require 'rails/generators/rails/app/app_generator'
-require 'generapp/actions/develop'
-require 'generapp/actions/test'
-require 'generapp/actions/production'
-require 'generapp/actions/views'
-require 'generapp/actions/configuration'
-require 'generapp/actions/database'
 
 module Generapp
+  # Rails app builder customizations
   class AppBuilder < ::Rails::AppBuilder
     include Generapp::Actions::Develop
     include Generapp::Actions::Test
@@ -38,13 +33,13 @@ module Generapp
     end
 
     def init_git
-      run 'git init'
+      git :init
     end
 
     def setup_bundler_audit
       copy_file 'tasks/bundler_audit.rake',
                 'lib/tasks/bundler_audit.rake'
-      append_file 'Rakefile', %{\ntask default: "bundler:audit"\n}
+      append_file 'Rakefile', "\ntask default: 'bundler:audit'\n"
     end
 
     def setup_spring
