@@ -1,5 +1,7 @@
 module Generapp
-  module Actions
+  module Actions #:nodoc
+    # App views configuration
+    # associated actions
     module Views
       def create_shared_directory
         empty_directory_with_keep_file 'app/views/shared'

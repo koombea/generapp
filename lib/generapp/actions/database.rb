@@ -1,5 +1,6 @@
 module Generapp
-  module Actions
+  module Actions #:nodoc
+    # App database associated actions
     module Database
       def use_postgres_config_template
         template 'config/postgresql_database.yml.erb',
