@@ -2,30 +2,30 @@ source 'https://rubygems.org'
 
 ruby '<%= Generapp::RUBY_VERSION %>'
 
-gem 'devise'
-gem 'dalli' # caching
-gem 'honeybadger', '~> 2.0'
-gem 'jquery-rails'
-gem 'newrelic_rpm'
-gem 'pg'
+gem 'devise' # User authentication
+gem 'dalli' # Caching
+gem 'honeybadger', '~> 2.0' # Error reporting
+gem 'jquery-rails' # jQuery
+gem 'newrelic_rpm' # Performance reports
+gem 'pg' # Postgres
 gem 'puma' # Use Puma as the app server
 gem 'rails', '<%= Generapp::RAILS_VERSION %>'
 gem 'sass-rails', '~>5.0'
 gem 'uglifier'
 
 group :development do
-  gem 'annotate'
+  gem 'annotate' # Schema model annotation
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'bullet'
-  gem 'lol_dba', require: false
+  gem 'bullet' # N+1 queries reporter
+  gem 'lol_dba', require: false # Missing index reporter
   gem 'quiet_assets'
-  gem 'parallel_tests'
-  gem 'rails-erd'
+  gem 'rails-erd' # ER Diagrams
   gem 'spring'
 end
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'factory_girl_rails'
   gem 'figaro' # Secrets
@@ -40,7 +40,7 @@ group :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'timecop'
+  gem 'timecop' # Time manipulation
 end
 
 group :production do
