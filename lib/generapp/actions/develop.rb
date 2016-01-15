@@ -1,28 +1,19 @@
-require 'generapp/actions/files'
 
 module Generapp
-  module Actions
+  module Actions #:nodoc
+    # App develop environment
+    # associated actions
     module Develop
-      include Files
-
       def raise_on_delivery_errors
-        replace_in_file 'config/environments/development.rb',
-                        'raise_delivery_errors = false', 'raise_delivery_errors = true'
+        gsub_file 'config/environments/development.rb',
+                  'raise_delivery_errors = false',
+                  'raise_delivery_errors = true'
       end
 
       def add_bullet_gem_configuration
-        config = <<-RUBY
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.bullet_logger = true
-    Bullet.rails_logger = true
-  end
-        RUBY
-
-        inject_into_file(
-            'config/environments/development.rb',
-            config,
-            after: "config.action_mailer.raise_delivery_errors = true\n")
+        inject_into_file 'config/environments/development.rb',
+                         bullet_configuration,
+                         after: "config.action_mailer.raise_delivery_errors = true\n"
       end
 
       def configure_dalli
@@ -32,14 +23,31 @@ module Generapp
 
         RUBY
 
-        inject_into_file(
-            'config/environments/development.rb',
-            config,
-            after: "config.action_mailer.raise_delivery_errors = true\n")
+        inject_into_file 'config/environments/development.rb',
+                         config,
+                         after: "config.action_mailer.raise_delivery_errors = true\n"
       end
 
       def configure_generators
-        config = <<-RUBY
+        inject_into_class 'config/application.rb',
+                          'Application',
+                          generapp_generators
+      end
+
+      def generate_annotate
+        copy_file 'tasks/auto_annotate_models.rake',
+                  'lib/tasks/auto_annotate_models.rake'
+      end
+
+      def add_secrets
+        copy_file 'config/application.yml', 'config/application.yml.example'
+        copy_file 'config/application.yml', 'config/application.yml'
+      end
+
+      protected
+
+      def generapp_generators
+        <<-RUBY
 
     config.generators do |g|
       g.assets false
@@ -54,18 +62,16 @@ module Generapp
     end
 
         RUBY
-
-        inject_into_class 'config/application.rb', 'Application', config
       end
 
-      def generate_annotate
-        copy_file 'tasks/auto_annotate_models.rake',
-                  'lib/tasks/auto_annotate_models.rake'
-      end
-
-      def add_secrets
-        copy_file 'config/application.yml', 'config/application.yml.example'
-        copy_file 'config/application.yml', 'config/application.yml'
+      def bullet_configuration
+        <<-RUBY
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.rails_logger = true
+  end
+        RUBY
       end
     end
   end

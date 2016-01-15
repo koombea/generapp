@@ -1,5 +1,7 @@
 module Generapp
-  module Actions
+  module Actions #:nodoc
+    # App test environment
+    # associated actions
     module Test
       def generate_rspec
         generate 'rspec:install'
@@ -27,8 +29,12 @@ module Generapp
       end
 
       def spec_folders
-        %w(spec/lib spec/controllers spec/helpers spec/support/matchers spec/support/mixins spec/support/shared_examples).each do |dir|
-          empty_directory_with_keep_file "#{dir}"
+        %w(spec/lib spec/controllers
+           spec/helpers
+           spec/support/matchers
+           spec/support/mixins
+           spec/support/shared_examples).each do |dir|
+          empty_directory_with_keep_file dir
         end
       end
 

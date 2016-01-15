@@ -2,18 +2,30 @@ require 'rails/generators'
 require 'rails/generators/rails/app/app_generator'
 
 module Generapp
-  module Generators
+  module Generators #:nodoc
+    # Rails App generator
     class AppGenerator < ::Rails::Generators::AppGenerator
-      class_option :database, type: :string, aliases: '-d', default: 'postgresql',
-                   desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+      class_option :database,
+                   type: :string,
+                   aliases: '-d',
+                   default: 'postgresql',
+                   desc: "Configure for selected database (options: #{DATABASES.join('/')})"
 
-      class_option :skip_test_unit, type: :boolean, aliases: '-T', default: true,
+      class_option :skip_test_unit,
+                   type: :boolean,
+                   aliases: '-T',
+                   default: true,
                    desc: 'Skip Test::Unit files'
 
-      class_option :skip_turbolinks, type: :boolean, default: true,
+      class_option :skip_turbolinks,
+                   type: :boolean,
+                   default: true,
                    desc: 'Skip turbolinks gem'
 
-      class_option :skip_bundle, type: :boolean, aliases: '-B', default: true,
+      class_option :skip_bundle,
+                   type: :boolean,
+                   aliases: '-B',
+                   default: true,
                    desc: "Don't run bundle install"
 
       def finish_template
@@ -43,46 +55,37 @@ module Generapp
 
       def setup_development_environment
         say 'Setting up the development environment'
-        build :raise_on_delivery_errors
-        build :add_bullet_gem_configuration
-        build :configure_dalli
-        build :configure_generators
-        build :generate_annotate
-        build :add_secrets
+        Generapp::Actions::Develop.instance_methods(false).each do |action|
+          build action.to_sym
+        end
       end
 
       def setup_test_environment
         say 'Setting up the test environment'
-        build :generate_rspec
-        build :configure_rspec
-        build :enable_database_cleaner
-        build :enable_devise_tests
-        build :provide_shoulda_matchers_config
-        build :spec_folders
-        build :configure_coverage
-        build :configure_ci
+        Generapp::Actions::Test.instance_methods(false).each do |action|
+          build action.to_sym
+        end
       end
 
       def setup_production_environment
         say 'Setting up the production environment'
-        build :configure_newrelic
-        build :configure_rack_timeout
+        Generapp::Actions::Production.instance_methods(false).each do |action|
+          build action.to_sym
+        end
       end
 
       def create_generapp_views
         say 'Creating views'
-        build :create_shared_directory
-        build :create_shared_flashes
-        build :create_shared_javascripts
-        build :create_application_layout
+        Generapp::Actions::Views.instance_methods(false).each do |action|
+          build action.to_sym
+        end
       end
 
       def configure_app
         say 'Configuring app'
-        build :setup_default_rake_task
-        build :configure_puma
-        build :set_up_foreman
-        build :generate_devise
+        Generapp::Actions::Configuration.instance_methods(false).each do |action|
+          build action.to_sym
+        end
       end
 
       def setup_stylesheets

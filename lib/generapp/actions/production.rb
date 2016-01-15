@@ -1,5 +1,7 @@
 module Generapp
-  module Actions
+  module Actions #:nodoc
+    # App production environment
+    # associated actions
     module Production
       def configure_newrelic
         template 'config/newrelic.yml.erb', 'config/newrelic.yml'
