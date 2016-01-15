@@ -15,6 +15,7 @@ public/uploads/*
 coverage/*
 ssl
 .bundle/*
+
 # Ignore Doc
 doc/*
 
@@ -34,11 +35,14 @@ backup*.dump
 .idea
 .idea/**/*
 
-#rbenv
+# rbenv
 .rbenv-gemsets
 
 # Ignore application configuration
 /config/application.yml
 
-#Ignore Vagrant
+# Ignore Vagrant
 .vagrant/
+
+# ER Diagram
+erd.pdf
