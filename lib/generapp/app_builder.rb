@@ -15,7 +15,7 @@ module Generapp
     end
 
     def gitignore
-      template 'generapp_gitignore', '.gitignore'
+      copy_file 'generapp_gitignore', '.gitignore'
     end
 
     def gemfile
