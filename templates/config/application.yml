@@ -1,5 +1,5 @@
 defaults: &defaults
-  DB_POOL:                      '12'                                              # Max number of active DB connection
+  DB_POOL:                      '10'                                              # Max number of active DB connection
   MAX_THREADS:                  '3'                                               # Puma max number of threads
   REAPING_FREQUENCY:            '5'                                               # Enable database reaping connections
   WEB_CONCURRENCY:              '2'                                               # Puma processes
@@ -8,9 +8,6 @@ development:
   <<: *defaults
 
 test:
-  <<: *defaults
-
-staging:
   <<: *defaults
 
 production:

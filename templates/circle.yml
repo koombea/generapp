@@ -4,4 +4,4 @@ dependencies:
     - cp config/application.yml.example config/application.yml
 test:
   override:
-    - bundle exec rspec
+    - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml

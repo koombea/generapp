@@ -31,13 +31,6 @@ backup*.dump
 *.dump
 *.orig
 
-# Idea
-.idea
-.idea/**/*
-
-# rbenv
-.rbenv-gemsets
-
 # Ignore application configuration
 /config/application.yml
 

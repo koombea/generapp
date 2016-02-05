@@ -1,5 +1,11 @@
 ### master
 
+* enhances
+    * Add RELEASING and CONTRIBUTING docs to generated app
+    * Improve integration with circleci
+    * Add file to track app version to generated app (`config/initializer/version.rb`)
+    * Add setup script
+
 ### 0.3.0 - 2016-01-15
 
 * enhances

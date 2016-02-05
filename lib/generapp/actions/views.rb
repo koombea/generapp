@@ -27,6 +27,16 @@ module Generapp
                  'app/views/layouts/application.html.erb',
                  force: true
       end
+
+      def create_humans_txt
+        copy_file 'public/humans.txt',
+                  'public/humans.txt'
+      end
+
+      def create_manifest
+        template 'public/manifest.json.erb',
+                  'public/manifest.json'
+      end
     end
   end
 end

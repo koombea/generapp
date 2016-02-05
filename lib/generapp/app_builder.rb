@@ -12,6 +12,8 @@ module Generapp
 
     def readme
       template 'README.md.erb', 'README.md'
+      copy_file 'RELEASING.md', 'RELEASING.md'
+      copy_file 'CONTRIBUTING.md', 'CONTRIBUTING.md'
     end
 
     def gitignore

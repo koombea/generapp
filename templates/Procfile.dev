@@ -1,4 +1,0 @@
-# recursively load foreman with the production services.
-redis: redis-server
-memcached: memcached
-foreman: foreman start -f Procfile

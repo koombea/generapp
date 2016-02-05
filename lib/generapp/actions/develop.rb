@@ -44,6 +44,11 @@ module Generapp
         copy_file 'config/application.yml', 'config/application.yml'
       end
 
+      def provide_setup_script
+        template 'bin/setup', 'bin/setup', force: true
+        run 'chmod a+x bin/setup'
+      end
+
       protected
 
       def generapp_generators

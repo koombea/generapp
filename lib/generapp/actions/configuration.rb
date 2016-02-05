@@ -12,9 +12,12 @@ module Generapp
         copy_file 'config/puma.rb', 'config/puma.rb'
       end
 
-      def set_up_foreman
+      def set_up_version
+        template 'config/version.rb.erb', 'config/initializers/version.rb'
+      end
+
+      def set_up_procfile
         copy_file 'Procfile', 'Procfile'
-        copy_file 'Procfile.dev', 'Procfile.dev'
       end
 
       def generate_devise

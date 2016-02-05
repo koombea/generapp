@@ -18,7 +18,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet' # N+1 queries reporter
-  gem 'lol_dba', require: false # Missing index reporter
+  gem 'lol_dba' # Missing index reporter
   gem 'quiet_assets'
   gem 'rails-erd' # ER Diagrams
   gem 'spring'
@@ -29,7 +29,6 @@ group :development, :test do
   gem 'bundler-audit', require: false
   gem 'factory_girl_rails'
   gem 'figaro' # Secrets
-  gem 'foreman'
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'rspec-rails'
@@ -38,6 +37,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'faker'
+  gem 'rspec_junit_formatter', '~> 0.2.2'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'timecop' # Time manipulation
