@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Generapp
   module Actions #:nodoc
     # App views configuration
@@ -35,7 +36,7 @@ module Generapp
 
       def create_manifest
         template 'public/manifest.json.erb',
-                  'public/manifest.json'
+                 'public/manifest.json'
       end
     end
   end

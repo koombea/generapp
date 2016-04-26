@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Rails app generator with some minor modification and customizations
 # Allows to jump start a project
 # with some of Koombea's standards and practices
