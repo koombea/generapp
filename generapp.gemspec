@@ -30,6 +30,6 @@ Feel free to use it to jump start your project and don't waste any time configur
   spec.add_dependency 'rails', Generapp::RAILS_VERSION
   spec.add_development_dependency 'rspec', '~> 3.4', '>= 3.4.0'
   spec.add_development_dependency 'rubocop', '~> 0.35', '>= 0.35'
-  spec.add_development_dependency 'coveralls', '~>0.8.0', '>= 0.8.0'
+  spec.add_development_dependency 'coveralls', '~> 0.8.0', '>= 0.8.0'
   spec.add_development_dependency 'yard', '~> 0.8.7', '>= 0.8.0'
 end

@@ -5,6 +5,7 @@
     * Improve integration with circleci
     * Add file to track app version to generated app (`config/initializer/version.rb`)
     * Add setup script
+    * Update to Ruby 2.3.1
 
 ### 0.3.0 - 2016-01-15
 
