@@ -1,5 +1,7 @@
 ### master
 
+### 0.3.1 - 2016-05-02
+
 * enhances
     * Add RELEASING and CONTRIBUTING docs to generated app
     * Improve integration with circleci

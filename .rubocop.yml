@@ -6,4 +6,3 @@ AllCops:
     - Rakefile
     - bin/generapp
   TargetRubyVersion: 2.3
-
