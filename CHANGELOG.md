@@ -1,5 +1,7 @@
 ### master
 
+### 0.3.2 - 2016-05-11
+
 * enhances
     * rubocop integration
 
