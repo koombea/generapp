@@ -45,6 +45,12 @@ module Generapp
       append_file 'Rakefile', "\ntask default: 'bundler:audit'\n"
     end
 
+    def setup_rubocop
+      copy_file 'tasks/rubocop.rake',
+                'lib/tasks/rubocop.rake'
+      append_file 'Rakefile', "\ntask default: 'rubocop'\n"
+    end
+
     def setup_spring
       bundle_command 'exec spring binstub --all'
     end

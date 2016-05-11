@@ -1,5 +1,12 @@
 ### master
 
+* enhances
+    * rubocop integration
+
+* bug fixes
+    * Fix javascript template error
+    * Fix page title name error
+    
 ### 0.3.1 - 2016-05-02
 
 * enhances

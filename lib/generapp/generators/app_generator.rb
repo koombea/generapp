@@ -45,6 +45,7 @@ module Generapp
         invoke :setup_database
         invoke :setup_git
         invoke :setup_bundler_audit
+        invoke :setup_rubocop
         invoke :setup_spring
         invoke :outro
       end
@@ -111,6 +112,11 @@ module Generapp
       def setup_bundler_audit
         say 'Setting up bundler-audit'
         build :setup_bundler_audit
+      end
+
+      def setup_rubocop
+        say 'Setting up rubocop'
+        build :setup_rubocop
       end
 
       def setup_spring

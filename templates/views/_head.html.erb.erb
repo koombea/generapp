@@ -1,4 +1,4 @@
-<title><%%= content_for?(:page_title) ? yield(:page_title) : <%= app_name.humanize %> %></title>
+<title><%%= content_for?(:page_title) ? yield(:page_title) : '<%= app_name.humanize %>' %></title>
 
 <%%= favicon_link_tag 'apple-icon-57x57.png', rel: 'apple-touch-icon', sizes: '57x57' %>
 <%%= favicon_link_tag 'apple-icon-60x60.png', rel: 'apple-touch-icon', sizes: '60x60' %>

@@ -49,6 +49,11 @@ module Generapp
         run 'chmod a+x bin/setup'
       end
 
+      def add_rubocop
+        create_file '.rubocop_todo.yml'
+        copy_file 'rubocop.yml', '.rubocop.yml'
+      end
+
       protected
 
       def generapp_generators
