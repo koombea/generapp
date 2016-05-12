@@ -12,7 +12,7 @@ test:
   min_messages: warning #magic sauce
   database: <%= app_name %>_test
 
-production: &defaults
+production:
   url:  <%%= ENV['DATABASE_URL'] %>
   pool: <%%= ENV['DB_POOL'] || ENV['MAX_THREADS'] || 3 %>
   reaping_frequency: <%%= ENV['REAPING_FREQUENCY'] || nil %>
