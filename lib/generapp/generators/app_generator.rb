@@ -46,7 +46,7 @@ module Generapp
         invoke :setup_git
         invoke :setup_bundler_audit
         invoke :setup_rubocop
-        invoke :setup_spring
+        invoke :generate_spring_binstubs
         invoke :outro
       end
 
@@ -119,9 +119,9 @@ module Generapp
         build :setup_rubocop
       end
 
-      def setup_spring
+      def generate_spring_binstubs
         say 'Springifying executables'
-        build :setup_spring
+        build :generate_spring_binstubs
       end
 
       def init_git

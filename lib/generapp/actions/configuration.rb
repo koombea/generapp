@@ -3,14 +3,25 @@ module Generapp
   module Actions #:nodoc
     # App configuration associated actions
     module Configuration
+      DEFAULT_TASK = <<~RUBY
+        task(:default).clear
+        task default: [:spec]
+
+        if defined? RSpec
+          task(:spec).clear
+          RSpec::Core::RakeTask.new(:spec) do |t|
+            t.verbose = false
+          end
+        end
+        task default: 'bundler:audit'
+      RUBY
+
+      private_constant :DEFAULT_TASK
+
       def setup_default_rake_task
         append_file 'Rakefile' do
-          rspec_task
+          DEFAULT_TASK
         end
-      end
-
-      def configure_puma
-        copy_file 'config/puma.rb', 'config/puma.rb'
       end
 
       def set_up_version
@@ -19,26 +30,6 @@ module Generapp
 
       def set_up_procfile
         copy_file 'Procfile', 'Procfile'
-      end
-
-      def generate_devise
-        generate 'devise:install'
-      end
-
-      protected
-
-      def rspec_task
-        <<-RUBY
-task(:default).clear
-task default: [:spec]
-
-if defined? RSpec
-  task(:spec).clear
-  RSpec::Core::RakeTask.new(:spec) do |t|
-    t.verbose = false
-  end
-end
-        RUBY
       end
     end
   end
