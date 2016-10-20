@@ -50,8 +50,6 @@ Development gems:
 * [lol_dba](https://github.com/plentz/lol_dba) for scanning missing indexes
 * [Pry Rails](https://github.com/rweng/pry-rails) for interactively exploring
   objects
-* [Quiet Assets](https://github.com/evrone/quiet_assets) for muting assets
-  pipeline log messages
 * [rails-erd](https://github.com/voormedia/rails-erd) for generating Entity-Relationship Diagrams
 * [Spring](https://github.com/rails/spring) for fast Rails actions via
   pre-loading
