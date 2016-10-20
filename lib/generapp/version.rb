@@ -5,7 +5,7 @@
 # with some of Koombea's standards and practices
 module Generapp
   # Default Rails Version
-  RAILS_VERSION = '~> 4.2.0'
+  RAILS_VERSION = '~> 5.0.0'
   # Default Ruby Version
   RUBY_VERSION = IO.read("#{File.dirname(__FILE__)}/../../.ruby-version").strip
   # Gem Version

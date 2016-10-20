@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 ruby '<%= Generapp::RUBY_VERSION %>'
 
-gem 'devise' # User authentication
-gem 'dalli' # Caching
 gem 'honeybadger', '~> 2.0' # Error reporting
-gem 'jquery-rails' # jQuery
+gem 'jquery-rails'
 gem 'newrelic_rpm' # Performance reports
 gem 'pg' # Postgres
 gem 'puma' # Use Puma as the app server
 gem 'rails', '<%= Generapp::RAILS_VERSION %>'
+gem 'redis-rails'
 gem 'sass-rails', '~>5.0'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 
 group :development do
@@ -19,17 +19,18 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet' # N+1 queries reporter
   gem 'lol_dba' # Missing index reporter
-  gem 'quiet_assets'
+  gem 'listen', '~> 3.0.5'
   gem 'rails-erd' # ER Diagrams
   gem 'rubocop', require: false
   gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'yard', require: false
 end
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'factory_girl_rails'
-  gem 'figaro' # Secrets
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'rspec-rails'
@@ -38,6 +39,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'faker'
+  gem 'rails-controller-testing'
   gem 'rspec_junit_formatter', '~> 0.2.2'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
@@ -46,5 +48,4 @@ end
 
 group :production do
   gem 'rack-timeout'
-  gem 'rails_12factor'
 end

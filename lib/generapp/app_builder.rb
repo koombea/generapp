@@ -51,7 +51,8 @@ module Generapp
       append_file 'Rakefile', "\ntask default: 'rubocop'\n"
     end
 
-    def setup_spring
+    def generate_spring_binstubs
+      return unless spring_install?
       bundle_command 'exec spring binstub --all'
     end
   end
