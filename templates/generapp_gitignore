@@ -26,7 +26,6 @@ doc/*
 *~
 *.swp
 *.DS_Store
-*.lock
 backup*.dump
 *.dump
 *.orig
