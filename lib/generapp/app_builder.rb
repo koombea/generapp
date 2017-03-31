@@ -10,6 +10,7 @@ module Generapp
     include Generapp::Actions::Views
     include Generapp::Actions::Configuration
     include Generapp::Actions::Database
+    include Generapp::Actions::Devise
 
     def readme
       template 'README.md.erb', 'README.md'

@@ -16,3 +16,4 @@ gemfiles/*.lock
 .idea/**/*
 
 .ruby-gemset
+*.gem
