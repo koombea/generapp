@@ -29,6 +29,11 @@ module Generapp
                    default: true,
                    desc: "Don't run bundle install"
 
+      class_option :skip_devise,
+                   type: :boolean,
+                   default: false,
+                   desc: "Skip devise gem"
+
       def finish_template
         invoke :generapp_customization
         super
@@ -43,6 +48,7 @@ module Generapp
         invoke :configure_app
         invoke :setup_stylesheets
         invoke :setup_database
+        invoke :setup_devise
         invoke :setup_git
         invoke :setup_bundler_audit
         invoke :setup_rubocop
@@ -97,8 +103,11 @@ module Generapp
 
       def setup_database
         say 'Setting up database'
-        if 'postgresql' == options[:database]
+        case options[:database]
+        when 'postgresql'
           build :use_postgres_config_template
+        when 'mysql'
+          build :use_mysql_config_template
         end
         build :create_database
       end
@@ -133,6 +142,15 @@ module Generapp
         say "Remember to run 'bundle exec honeybadger install [YOUR API KEY HERE]'"
       end
 
+      def setup_devise
+        unless options[:skip_devise]
+          say 'Configuring devise'
+          Generapp::Actions::Devise.instance_methods(false).each do |action|
+            build action.to_sym
+          end
+        end
+      end
+
       protected
 
       def get_builder_class
@@ -141,6 +159,20 @@ module Generapp
 
       def using_active_record?
         !options[:skip_active_record]
+      end
+
+      def gemfile_entries # :doc:
+        [
+          database_gemfile_entry,
+          devise_gemfile_entry
+        ].flatten.find_all(&@gem_filter)
+      end
+
+      def devise_gemfile_entry # :doc:
+        say options[:skip_devise]
+        return [] if options[:skip_devise]
+        comment = "Use Devise for authenticacion"
+        GemfileEntry.new("devise", nil, comment)
       end
     end
   end
