@@ -74,6 +74,13 @@ If you plan to use Rails ERD you may need to install Graphviz ([instructions](ht
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+## Generating a local version of the gem for testing
+
+```
+gem build generapp.gemspec
+gem install ./generapp*.gem
+```
+
 ## License
 
 MIT License. Copyright 2016 Koombea. https://koombea.com/
