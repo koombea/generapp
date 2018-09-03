@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+
 ruby '<%= Generapp::RUBY_VERSION %>'
 
 gem 'honeybadger', '~> 2.0' # Error reporting
@@ -13,24 +16,29 @@ gem 'sass-rails', '~>5.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
+
 group :development do
   gem 'annotate' # Schema model annotation
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet' # N+1 queries reporter
   gem 'lol_dba' # Missing index reporter
-  gem 'listen', '~> 3.0.5'
   gem 'rails-erd' # ER Diagrams
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'yard', require: false
+
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'rspec-rails'
