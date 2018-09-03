@@ -16,3 +16,5 @@ gemfiles/*.lock
 .idea/**/*
 
 .ruby-gemset
+*.gem
+test_app/*
